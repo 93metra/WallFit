@@ -1,0 +1,49 @@
+.App {
+  background-color: #1e1e1e;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 255, 200, 0.3);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  color: #00ffc8;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #333;
+  border: none;
+  color: #00ffc8;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #00ffc8;
+  color: #121212;
+}
+
+button.active {
+  background-color: #00ffc8;
+  color: #121212;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 6px;
+  background-color: #333;
+  color: #ffffff;
+}
