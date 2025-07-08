@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
   const nozzleSizes = [0.2, 0.4, 0.6, 0.8];
   const [selectedNozzle, setSelectedNozzle] = useState(0.4);
   const [desiredWallWidth, setDesiredWallWidth] = useState('');
+  const [theme, setTheme] = useState('dark');
 
   const getClosestWallWidth = () => {
     if (!desiredWallWidth || selectedNozzle === 0) return '';
@@ -14,9 +15,17 @@ function App() {
     return closest.toFixed(2);
   };
 
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+
   return (
-    <div className="App">
+    <div className={`App ${theme}`}>
       <h1>WallFit</h1>
+
+      <button onClick={toggleTheme} style={{ marginBottom: '20px' }}>
+        Switch to {theme === 'dark' ? 'Light' : 'Dark'} Theme
+      </button>
 
       <div>
         <h2>Select nozzle width:</h2>
@@ -24,12 +33,7 @@ function App() {
           <button
             key={size}
             onClick={() => setSelectedNozzle(size)}
-            style={{
-              margin: '5px',
-              padding: '10px',
-              backgroundColor: selectedNozzle === size ? '#4CAF50' : '#e7e7e7',
-              color: selectedNozzle === size ? 'white' : 'black'
-            }}
+            className={selectedNozzle === size ? 'active' : ''}
           >
             {size} mm
           </button>
